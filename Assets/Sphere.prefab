@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8653273499105213640}
   - component: {fileID: 8193236848159640344}
+  - component: {fileID: 8466419397893020478}
   - component: {fileID: 4268069058363347041}
   - component: {fileID: 6106055680143325774}
-  - component: {fileID: 8466419397893020478}
   - component: {fileID: 1326181642641672911}
   m_Layer: 0
   m_Name: Sphere
@@ -44,6 +44,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4204458947951918146}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8466419397893020478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204458947951918146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4402c870c6141e247a57adde7a9b52f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!23 &4268069058363347041
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107,22 +120,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8466419397893020478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4204458947951918146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4402c870c6141e247a57adde7a9b52f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: 40, y: 0, z: -2.22}
-  - {x: 50.44, y: 0, z: -7.29}
-  speed: 10
 --- !u!54 &1326181642641672911
 Rigidbody:
   m_ObjectHideFlags: 0

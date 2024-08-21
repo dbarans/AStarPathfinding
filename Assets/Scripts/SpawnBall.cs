@@ -9,6 +9,7 @@ public class SpawnBall : MonoBehaviour
     private float timeElapsed = 0f;
 
 
+
     private void Update()
     {
         timeElapsed += Time.deltaTime;
@@ -20,7 +21,7 @@ public class SpawnBall : MonoBehaviour
     }
     private void Spawn()
     {
-        Instantiate(ballPrefab, transform.position, Quaternion.identity);
+        GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
     }
     
 }
