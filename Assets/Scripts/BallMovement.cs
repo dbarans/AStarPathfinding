@@ -7,7 +7,8 @@ public class BallMovement : MonoBehaviour
 {
     private List<Node> nodes;
     private Pathfinding pathfinding;
-    public Vector3 target;
+    public GameObject target;
+    private Vector3 previousTargetPosition;
     private ReferenceManager Ref;
     
     private int currentPointIndex = 0;
@@ -17,10 +18,11 @@ public class BallMovement : MonoBehaviour
     {
         Ref = ReferenceManager.Instance;
         pathfinding = Ref.Pathfinding;
-        target = Ref.Target.position;
+        target = Ref.Target;
+        previousTargetPosition = target.transform.position;
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
-        nodes = pathfinding.FindPath(transform.position, target);
+        nodes = pathfinding.FindPath(transform.position, target.transform.position);
         stopwatch.Stop();
         UnityEngine.Debug.Log(stopwatch.ElapsedMilliseconds);
 
@@ -42,9 +44,10 @@ public class BallMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             currentPointIndex++;
-            if (Ref.NodeGrid.GridChanged)
+            if (Ref.NodeGrid.GridChanged || target.transform.position != previousTargetPosition)
             {
-                nodes = pathfinding.FindPath(transform.position, target);
+                previousTargetPosition = target.transform.position;
+                nodes = pathfinding.FindPath(transform.position, target.transform.position);
                 currentPointIndex = 0;
             }
         }

@@ -8,12 +8,12 @@ public class ReferenceManager : MonoBehaviour
     [SerializeField] private CameraController playerCamera;
     [SerializeField] private NodeGrid nodeGrid;
     [SerializeField] private Pathfinding pathfinding;
-    [SerializeField] private Transform target;
+    [SerializeField] private GameObject target;
 
     public CameraController PlayerCamera => playerCamera;
     public NodeGrid NodeGrid => nodeGrid;
     public Pathfinding Pathfinding => pathfinding;
-    public Transform Target => target;
+    public GameObject Target => target;
 
 
 
