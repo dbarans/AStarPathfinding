@@ -54,7 +54,7 @@ public class Pathfinding : MonoBehaviour
         return new List<Node>();
     }
 
-    private Node FindClosestNode(Vector3 pos)
+    public Node FindClosestNode(Vector3 pos)
     {
         float percentX = Mathf.Clamp01((pos.x - nodeGrid.Nodes[0, 0].WorldPosition.x) /
                                         (nodeGrid.Nodes[nodeGrid.GridSizeX - 1, nodeGrid.GridSizeZ - 1].WorldPosition.x - nodeGrid.Nodes[0, 0].WorldPosition.x));
@@ -101,7 +101,6 @@ public class Pathfinding : MonoBehaviour
         {
             path.Add(currentNode);
         }
-        path.Add(startNode);
         path.Reverse();
         return path;
     }

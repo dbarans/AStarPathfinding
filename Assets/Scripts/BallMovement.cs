@@ -44,7 +44,7 @@ public class BallMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             currentPointIndex++;
-            if (Ref.NodeGrid.GridChanged || target.transform.position != previousTargetPosition)
+            if (Ref.NodeGrid.GridChanged || Ref.Pathfinding.FindClosestNode(target.transform.position) != Ref.Pathfinding.FindClosestNode(previousTargetPosition))
             {
                 previousTargetPosition = target.transform.position;
                 nodes = pathfinding.FindPath(transform.position, target.transform.position);

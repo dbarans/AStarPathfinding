@@ -413,7 +413,7 @@ MonoBehaviour:
   playerCamera: {fileID: 51050746}
   nodeGrid: {fileID: 1622952449}
   pathfinding: {fileID: 935718568}
-  target: {fileID: 1957126376}
+  target: {fileID: 1957126372}
 --- !u!4 &351423947
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,6 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  gridChanged: 0
 --- !u!4 &1622952450
 Transform:
   m_ObjectHideFlags: 0
