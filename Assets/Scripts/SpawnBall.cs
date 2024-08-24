@@ -6,7 +6,9 @@ public class SpawnBall : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private float spawnInterval = 1f;
+    [SerializeField] private float speed = 2f;
     private float timeElapsed = 0f;
+
 
 
 
@@ -22,6 +24,7 @@ public class SpawnBall : MonoBehaviour
     private void Spawn()
     {
         GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
+        ball.GetComponent<BallMovement>().speed = speed;    
     }
     
 }

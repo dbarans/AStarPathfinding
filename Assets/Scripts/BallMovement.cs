@@ -12,12 +12,12 @@ public class BallMovement : MonoBehaviour
     private ReferenceManager Ref;
     
     private int currentPointIndex = 0;
-    public float speed = 2;
+    [HideInInspector] public float speed = 2;
 
     private void Start()
     {
         Ref = ReferenceManager.Instance;
-        pathfinding = Ref.Pathfinding;
+        pathfinding = Ref.NodeGrid.Pathfinding;
         target = Ref.Target;
         previousTargetPosition = target.transform.position;
         Stopwatch stopwatch = new Stopwatch();
@@ -44,7 +44,7 @@ public class BallMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             currentPointIndex++;
-            if (Ref.NodeGrid.GridChanged || Ref.Pathfinding.FindClosestNode(target.transform.position) != Ref.Pathfinding.FindClosestNode(previousTargetPosition))
+            if (Ref.NodeGrid.GridChanged || pathfinding.FindClosestNode(target.transform.position) != pathfinding.FindClosestNode(previousTargetPosition))
             {
                 previousTargetPosition = target.transform.position;
                 nodes = pathfinding.FindPath(transform.position, target.transform.position);

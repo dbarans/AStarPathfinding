@@ -9,6 +9,7 @@ public class NodeGrid : MonoBehaviour
     [SerializeField] private int gridSizeZ = 10;
     [SerializeField] private float nodeRadius = 1;
     [SerializeField] private LayerMask obstacleLayerMask;
+    private Pathfinding pathfinding;
 
     private bool gridChanged = false;
     private int[,] nodeHashes;
@@ -50,8 +51,15 @@ public class NodeGrid : MonoBehaviour
         private set { gridChanged = value; }
     }
 
+    public Pathfinding Pathfinding
+    {
+        get { return pathfinding; }
+        private set { pathfinding = value; }
+    }
+
     private void Start()
     {
+        Pathfinding =  new Pathfinding(this);
         InitializeNodeHashes();
         style = new GUIStyle();
     }

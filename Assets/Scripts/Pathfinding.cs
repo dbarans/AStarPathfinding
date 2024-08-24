@@ -2,15 +2,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinding
 {
-    [SerializeField] private NodeGrid nodeGrid;
+    private NodeGrid nodeGrid;
     private readonly int strightCost = 10;
     private readonly int diagonalCost = 14;
 
-
-    private void Start()
+    public Pathfinding(NodeGrid nodeGrid)
     {
+        this.nodeGrid = nodeGrid;
         nodeGrid.GenerateNodeGrid();
     }
 
@@ -23,15 +23,18 @@ public class Pathfinding : MonoBehaviour
 
         var openNodes = new List<Node> { startNode };
         var closedNodes = new HashSet<Node>();
-
+        int counter = 0;
         while (openNodes.Count > 0)
         {
+            counter++;
             Node currentNode = FindCheapestNode(openNodes);
             openNodes.Remove(currentNode);
             closedNodes.Add(currentNode);
 
-            if (currentNode == targetNode)
-                return ReconstructPath(startNode, targetNode);
+            if (currentNode == targetNode) { 
+                Debug.Log("Path found in " + counter + " iterations.");
+            return ReconstructPath(startNode, targetNode);
+            }
 
             foreach (Node neighbor in nodeGrid.GetNeighbors(currentNode.GridX, currentNode.GridZ))
             {
@@ -50,6 +53,7 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+        
 
         return new List<Node>();
     }
